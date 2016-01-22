@@ -1,8 +1,9 @@
-// var ExtractTextPlugin = require("extract-text-webpack-plugin");
-//
-// var extractCSS = new ExtractTextPlugin('css/[name].css');
-// var extractURL = new ExtractTextPlugin("assets/[name]");
-// var extractFile = new ExtractTextPlugin("assets/[name]");
+var webpack = require('webpack');
+var path = require('path');
+
+var query = {
+    presets: ['es2015', 'react']
+}
 
 module.exports = {
 
@@ -22,13 +23,10 @@ module.exports = {
     module: {
         loaders: [
             {
-                // babel
                 test: /\.js/,
                 exclude: /node_modules/,
-                loader: ['babel-loader'],
-                query: {
-                    presets: ['es2015', 'react']
-                }
+                loaders: ['react-hot', 'babel-loader?'+JSON.stringify(query)],
+                include: path.join(__dirname, 'app')
             },
             {
                 test: /\.html$/,
@@ -40,10 +38,7 @@ module.exports = {
         ]
     },
 
-    // plugins: [
-    //     extractCSS,
-    //     extractURL,
-    //     extractFile
-    // ]
+    plugins: [
+    ]
 
 }

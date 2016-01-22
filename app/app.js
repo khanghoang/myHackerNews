@@ -5,6 +5,9 @@ import ArticleListItem from './components/ArticleListItem';
 let style = require('./css/index.css');
 
 ReactDOM.render(
-    <ArticleListItem className={style.red}/>,
+    (<div>
+        <input type="text"></input>
+        <ArticleListItem className={style.red}/>
+    </div>),
     document.getElementById('container')
 );
