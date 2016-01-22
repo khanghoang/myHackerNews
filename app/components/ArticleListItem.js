@@ -5,6 +5,7 @@ class ArticleListItem extends Component {
     render() {
         return (
             <ListItem
+                className={this.props.className}
                 primaryText="Hello world"
                 secondarytext={
                     <p> hello there </p>
