@@ -1,13 +1,19 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import ArticleListItem from './components/ArticleListItem';
+import ArticleListItemContainer from './containers/ArticleListItemContainer';
+import configureStore from './store/configureStore';
+import { Provider } from 'react-redux';
 
 let style = require('./css/index.css');
+const store = configureStore();
+
+console.log(store);
+
+console.log('aaaaa');
 
 ReactDOM.render(
-    (<div>
-        <input type="text"></input>
-        <ArticleListItem className={style.red}/>
-    </div>),
+    (<Provider store={store}>
+        <ArticleListItemContainer className={style.red}/>
+    </Provider>),
     document.getElementById('container')
 );
