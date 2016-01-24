@@ -4,7 +4,7 @@ import { combineReducers } from 'redux';
 let data = function (state = [], action) {
     switch(action.type) {
         case FETCH_DATA:
-            return [action.data, ...state];
+            return [...state, ...action.data];
         default:
             return state;
     }

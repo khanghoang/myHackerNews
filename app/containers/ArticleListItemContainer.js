@@ -15,13 +15,18 @@ function mapDispatchToProps(dispatch) {
 }
 
 class ArticleListItemContainer extends Component {
+
+    componentWillUpdate(newProps, newState) {
+        console.log(newProps, newState);
+    }
+
     componentDidMount() {
-        console.log(this.props);
+        console.log(this.props.data);
         this.props.fetchData();
     }
 
     render() {
-        let items = this.props.data.map(item => <ArticleListItem />);
+        let items = this.props.data.map(item => <ArticleListItem text={item}/>);
         return (
             <div>
                 {items}

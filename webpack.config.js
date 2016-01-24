@@ -18,7 +18,7 @@ module.exports = {
         path: __dirname + '/dist'
     },
 
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'eval',
 
     module: {
         loaders: [
@@ -39,9 +39,9 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        // new webpack.optimize.OccurenceOrderPlugin(),
+        // new webpack.HotModuleReplacementPlugin(),
+        // new webpack.NoErrorsPlugin()
     ]
 
 }
