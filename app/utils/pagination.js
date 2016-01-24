@@ -10,6 +10,6 @@ import _ from 'lodash';
 export default function paginate(object, page, itemsPerPage = 10) {
     const arr = _.values(object);
     return arr.filter((item, idx) => {
-        return idx / itemsPerPage === page;
+        return Math.floor(idx / itemsPerPage) + 1 === page;
     });
 }
