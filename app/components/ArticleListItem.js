@@ -6,9 +6,9 @@ class ArticleListItem extends Component {
         return (
             <ListItem
                 className={this.props.className}
-                primaryText={this.props.text}
+                primaryText={this.props.item.id}
                 secondarytext={
-                    <p>{this.props.text}</p>
+                    <p>{this.props.item.id}</p>
                 }
             />
         )

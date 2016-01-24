@@ -6,7 +6,7 @@ import React,{ Component } from 'react';
 
 function mapStateToProps(state) {
     return {
-        data: state.data
+        stories: state.data.stories
     }
 }
 
@@ -15,6 +15,15 @@ function mapDispatchToProps(dispatch) {
 }
 
 class ArticleListItemContainer extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            data: {
+                stories: {}
+            }
+        }
+    }
 
     componentWillUpdate(newProps, newState) {
         console.log(newProps, newState);
@@ -26,7 +35,10 @@ class ArticleListItemContainer extends Component {
     }
 
     render() {
-        let items = this.props.data.map(item => <ArticleListItem text={item}/>);
+
+        if(!this.props.stories) return null;
+
+        let items = _.values(this.props.stories).map(item => <ArticleListItem item={item}/>);
         return (
             <div>
                 {items}
