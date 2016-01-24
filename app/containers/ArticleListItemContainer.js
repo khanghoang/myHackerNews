@@ -6,7 +6,7 @@ import React,{ Component } from 'react';
 
 function mapStateToProps(state) {
     return {
-        stories: state.data.stories
+        stories: state.currentPage.pageData
     }
 }
 
@@ -19,8 +19,8 @@ class ArticleListItemContainer extends Component {
     constructor() {
         super();
         this.state = {
-            data: {
-                stories: {}
+            currentPage: {
+                pageData: []
             }
         }
     }
@@ -30,7 +30,6 @@ class ArticleListItemContainer extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.data);
         this.props.fetchData();
     }
 
