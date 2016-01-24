@@ -6,7 +6,7 @@ import React,{ Component } from 'react';
 
 function mapStateToProps(state) {
     return {
-        stories: state.currentPage.pageData
+        currentPage: state.topStoriesReducer
     }
 }
 
@@ -34,10 +34,8 @@ class ArticleListItemContainer extends Component {
     }
 
     render() {
-
-        if(!this.props.stories) return null;
-
-        let items = _.values(this.props.stories).map(item => <ArticleListItem item={item}/>);
+        if(!this.props.currentPage.pageData) return null;
+        let items = _.values(this.props.currentPage.pageData).map(item => <ArticleListItem item={item}/>);
         return (
             <div>
                 {items}
